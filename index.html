@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kacy Phan, real estate finance professional: underwriting, financial modeling and transaction execution.">
+<title>Kacy Phan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: recruiter-first single column on white — summary and key facts up top, experience next, then projects, skills, education, contact. Deliberately light-only for readability. */
+:root {
+  --bg: #ffffff;
+  --panel: #f4f6fa;
+  --ink: #1a2230;
+  --muted: #586374;
+  --line: #e1e6ee;
+  --accent: #1d4a7c;
+  --accent-soft: #e7eef7;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 17px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 880px; margin: 0 auto; padding-block: 64px 80px; display: grid; gap: 72px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+
+/* Header */
+header { display: grid; gap: 24px; }
+.mark { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; }
+h1 { font-family: var(--display); font-weight: 500; font-size: clamp(48px, 9vw, 80px); line-height: 1; letter-spacing: -.015em; }
+.role { font-family: var(--display); font-style: italic; font-size: clamp(21px, 3vw, 26px); line-height: 1.35; color: var(--muted); max-width: 34ch; }
+.lede { max-width: 64ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font: 600 15px var(--body); text-decoration: none; padding: 10px 18px; border-radius: 6px; border: 1px solid var(--accent); cursor: pointer; }
+.btn.primary { background: var(--accent); color: #ffffff; }
+.btn.ghost { background: var(--bg); color: var(--accent); }
+.btn:hover { filter: brightness(1.08); }
+
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--panel); border-radius: 10px; }
+.fact { padding: 18px 20px; display: grid; gap: 4px; }
+.fact + .fact { border-left: 1px solid var(--line); }
+.fact .k { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.fact .v { font-weight: 600; font-size: 16px; line-height: 1.35; }
+@media (max-width: 720px) {
+  .facts { grid-template-columns: 1fr 1fr; }
+  .fact + .fact { border-left: 0; }
+  .fact:nth-child(even) { border-left: 1px solid var(--line); }
+  .fact:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 420px) {
+  .facts { grid-template-columns: 1fr; }
+  .fact:nth-child(even) { border-left: 0; }
+  .fact + .fact { border-top: 1px solid var(--line); }
+}
+
+/* Sections */
+section { display: grid; gap: 28px; }
+.sec-head { display: grid; gap: 6px; }
+.sec-head h2 { font-family: var(--display); font-weight: 500; font-size: 34px; line-height: 1.15; }
+
+/* Experience */
+.timeline { display: grid; gap: 0; }
+.job { display: grid; grid-template-columns: 170px 1fr; gap: 8px 32px; padding-block: 28px; border-top: 1px solid var(--line); }
+.job:first-child { border-top: 0; padding-top: 0; }
+.job .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; line-height: 1.5; }
+.job .when strong { display: block; color: var(--ink); font-weight: 600; }
+.job-main { min-width: 0; display: grid; gap: 10px; }
+.job h3 { font-size: 20px; font-weight: 600; line-height: 1.3; }
+.job .co { color: var(--accent); font-weight: 500; }
+.job ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.job li::marker { color: var(--accent); }
+@media (max-width: 640px) { .job { grid-template-columns: 1fr; } }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 720px) { .projects { grid-template-columns: 1fr; } }
+.project { border: 1px solid var(--line); border-radius: 12px; padding: 26px; display: grid; gap: 18px; align-content: start; background: var(--bg); transition: box-shadow .2s ease, border-color .2s ease; }
+.project:hover { border-color: #cfd6dd; box-shadow: 0 8px 24px rgba(26, 34, 48, .06); }
+.project h3 { font-family: var(--display); font-weight: 500; font-size: 26px; line-height: 1.2; }
+.project p { color: var(--muted); }
+.stack { display: grid; gap: 8px; }
+.bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; gap: 2px; }
+.bar i { display: block; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend b { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+.c1 { background: var(--accent); } .c2 { background: #6fa49d; } .c3 { background: #b9d3cf; } .c4 { background: #dde3e8; }
+.project h4 { margin: 0 0 6px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.project ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 16px; }
+.project li::marker { color: var(--accent); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-size: 13px; font-weight: 500; background: var(--accent-soft); color: var(--accent); padding: 4px 10px; border-radius: 999px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 680px) { .skills { grid-template-columns: 1fr; } }
+.skill-card { background: var(--panel); border-radius: 10px; padding: 20px 22px; display: grid; gap: 12px; align-content: start; }
+.skill-card h3 { font-size: 15px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.skill-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-card li { font-size: 15px; background: var(--bg); border: 1px solid var(--line); padding: 4px 12px; border-radius: 999px; }
+
+/* Education */
+.edu { display: grid; }
+.edu-row { display: flex; justify-content: space-between; gap: 4px 16px; flex-wrap: wrap; align-items: baseline; padding-block: 18px; border-top: 1px solid var(--line); }
+.edu-row:first-child { border-top: 0; padding-top: 0; }
+.edu-row strong { font-weight: 600; }
+.edu-row .where { display: block; color: var(--muted); font-size: 16px; }
+.edu-row .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.badge { font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: 2px; }
+
+/* Contact */
+.contact { background: var(--panel); border-radius: 14px; padding: 36px 32px; display: grid; gap: 18px; }
+.contact h2 { font-family: var(--display); font-weight: 500; font-size: 34px; }
+.contact p { color: var(--muted); max-width: 52ch; }
+.email { font-size: 19px; font-weight: 600; user-select: all; overflow-wrap: anywhere; }
+footer { color: var(--muted); font-size: 14px; text-align: center; }
+@media (prefers-reduced-motion: reduce) { .project { transition: none; } }
+
+/* Featured tracker */
+.feature { border: 1px solid var(--line); border-radius: 12px; padding: 26px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px 36px; align-items: start; background: var(--panel); }
+.feature-side { display: grid; gap: 12px; justify-items: start; min-width: 0; }
+.feature h4 { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.feature-text { display: grid; gap: 14px; min-width: 0; justify-items: start; }
+.feature h3 { font-family: var(--display); font-weight: 500; font-size: 30px; line-height: 1.15; }
+.feature p { color: var(--muted); }
+.feature ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 16px; }
+.feature li::marker { color: var(--accent); }
+.feature-shot { position: relative; padding: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; cursor: zoom-in; background: var(--panel); box-shadow: 0 12px 32px rgba(26,34,48,.10); transition: transform .25s ease, box-shadow .25s ease; }
+.feature-shot img { display: block; width: 100%; }
+.feature-shot:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(26,34,48,.14); }
+.shot-hint { position: absolute; right: 10px; bottom: 10px; background: rgba(26,34,48,.82); color: #fff; font-size: 13px; font-weight: 600; padding: 5px 10px; border-radius: 999px; }
+.thumbs { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.thumb { padding: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; cursor: zoom-in; background: var(--panel); aspect-ratio: 16 / 10; max-width: 100%; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; transition: transform .3s ease; }
+.thumb:hover img { transform: scale(1.04); }
+.demo-note { font-size: 14px; }
+#projects { gap: 20px; } #projects .sec-head { margin-bottom: 8px; }
+@media (max-width: 760px) { .feature { grid-template-columns: 1fr; padding: 20px; } }
+.states { font-size: 14px; font-weight: 600; letter-spacing: .04em; color: var(--accent) !important; }
+
+/* Lightbox */
+.lb { position: fixed; inset: 0; z-index: 50; background: rgba(15,20,28,.92); display: grid; grid-template-rows: auto 1fr auto; padding: calc(12px + env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+.lb-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #fff; padding: 4px 4px 12px; }
+.lb-cap { font-size: 16px; font-weight: 500; }
+.lb-count { font-size: 14px; color: #b8c2cf; margin-left: 10px; font-variant-numeric: tabular-nums; }
+.lb-stage { overflow: auto; display: grid; place-items: start center; min-height: 0; }
+.lb-stage img { max-width: min(1400px, 100%); border-radius: 6px; background: #fff; }
+.lb-nav { display: flex; justify-content: center; gap: 12px; padding-top: 12px; }
+.lb button { font: 600 15px var(--body); background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 6px; padding: 9px 16px; cursor: pointer; }
+.lb button:hover { background: rgba(255,255,255,.22); }
+@media (prefers-reduced-motion: reduce) { .feature-shot, .thumb img { transition: none; } }
+.sec-head h2.big { font-size: 42px; }
+h3.sub { font-family: var(--display); font-weight: 500; font-size: 26px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark"></div>
+    <span class="eyebrow">Real Estate Finance &amp; Investments</span>
+    <h1>Kacy Phan</h1>
+    <p class="role">Underwriting, financial modeling and transaction execution for real estate investments.</p>
+    <p class="lede">I evaluate real estate deals from first pro forma through closing: testing feasibility, sizing risk, structuring capital and presenting recommendations to Investment Committee. My background spans affordable housing equity, commercial leasing and residential lending, and I'm completing an M.S. in Financial Analytics to deepen my quantitative modeling.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/kacyphan/" target="_blank" rel="noopener">View LinkedIn</a>
+      <button class="btn ghost" id="copy-email" type="button">Copy email</button>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="k">Current role</span><span class="v">Underwriter, WNC &amp; Associates</span></div>
+      <div class="fact"><span class="k">Focus</span><span class="v">Real estate finance &amp; investments</span></div>
+      <div class="fact"><span class="k">Education</span><span class="v">M.S. Financial Analytics, 2027</span></div>
+      <div class="fact"><span class="k">Location</span><span class="v">Southern California</span></div>
+    </div>
+  </header>
+
+  <section id="experience">
+    <div class="sec-head"><h2 class="big">Experience</h2></div>
+    <div class="timeline">
+      <div class="job">
+        <div class="when"><strong>Apr 2024 – Present</strong>Irvine, CA</div>
+        <div class="job-main">
+          <h3>Underwriter · <span class="co">WNC &amp; Associates</span></h3>
+          <ul>
+            <li>Underwrite real estate equity investments, evaluating developer pro formas, transaction risk, capital structure and project feasibility.</li>
+            <li>Build and maintain underwriting and origination models with scenario and sensitivity analysis on rents, vacancy, expenses, construction costs, debt, investor yield, cash flow and IRR.</li>
+            <li>Analyze operating budgets, sources and uses, schedules of values and third-party reports to assess performance, construction cost and risk.</li>
+            <li>Lead assigned deals through approval and closing, presenting recommendations to Investment Committee and senior leadership and reviewing partnership agreements, loan documents, insurance and settlement statements.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when"><strong>Jun 2021 – Dec 2023</strong>Newport, CA</div>
+        <div class="job-main">
+          <h3>Transaction Coordinator · <span class="co">National Franchise Sales</span></h3>
+          <ul>
+            <li>Managed commercial transactions from due diligence through close of escrow.</li>
+            <li>Negotiated commercial lease terms with landlords, lenders, attorneys and franchise stakeholders.</li>
+            <li>Reviewed environmental reports, contracts, leases and closing documents.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when"><strong>2017 – 2018</strong>Santa Ana, CA</div>
+        <div class="job-main">
+          <h3>Mortgage Loan Processor · <span class="co">Deutsche Bank</span></h3>
+          <ul>
+            <li>Processed residential mortgage files, analyzing borrower financials, loan metrics, credit and title.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><h2 class="big">Projects</h2></div>
+
+    <div class="projects">
+      <article class="project">
+        <span class="eyebrow">Apr 2024 – Present</span>
+        <h3>Multi-State LIHTC Projects</h3>
+        <p class="states">AK · AZ · CA · FL · LA · KS · MN · NE · NH · TX · VA · VT · WA</p>
+        <p>Affordable housing developments from 12 to 264 units, across new construction and acquisition-rehab.</p>
+        <div>
+          <h4>Highlights</h4>
+          <ul>
+            <li>Unit mixes with LIHTC, Section 8, PRAC, HAP and project-based vouchers</li>
+            <li>4% and 9% credits, bonds, HUD, Fannie Mae, Freddie Mac, grants and construction/perm loans</li>
+            <li>Underwriting, financial analysis, due diligence and closing coordination</li>
+          </ul>
+        </div>
+        <div class="tags"><span class="tag">Underwriting</span><span class="tag">Capital structuring</span><span class="tag">Closings</span></div>
+      </article>
+
+      <article class="project">
+        <span class="eyebrow">Jun 2021 – Dec 2023</span>
+        <h3>Multi-State Commercial Projects</h3>
+        <p class="states">AK · AZ · CA · OR · TX · WA</p>
+        <p>Restaurant acquisitions for national franchise brands, from acquisition through tenant improvements.</p>
+        <div>
+          <h4>Highlights</h4>
+          <ul>
+            <li>Tenants including Jack in the Box, Denny's, Del Taco, Popeyes, Dairy Queen and The Melting Pot</li>
+            <li>Lease negotiation, site feasibility and lender/investor coordination</li>
+            <li>NNN lease structures, franchise tenant requirements and commercial lending</li>
+          </ul>
+        </div>
+        <div class="tags"><span class="tag">NNN leases</span><span class="tag">Acquisitions</span><span class="tag">Commercial lending</span></div>
+      </article>
+    </div>
+    <article class="feature" id="tracker">
+      <div class="feature-text">
+        <span class="eyebrow">Built by me · Tool</span>
+        <h3>Underwriting Pipeline Tracker</h3>
+        <p>Off-the-shelf platforms weren't built for underwriting or LIHTC, so I created my own. Drop in a deal's Excel model and the tracker rolls up the key metrics for each project in one place, with no digging through files and no monthly subscription.</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Excel integration</span><span class="tag">Data visualization</span><span class="tag">Process improvement</span></div>
+      </div>
+      <div class="feature-side">
+        <h4>What it tracks</h4>
+        <ul>
+          <li>Pipeline, deadlines and to-dos across every deal</li>
+          <li>Sources &amp; uses, financing, tax credits and yield</li>
+          <li>Operating expenses benchmarked against comps</li>
+          <li>Construction schedule and draw progress</li>
+        </ul>
+        <button class="btn primary" type="button" id="open-gallery">Click to see pictures</button>
+        <p class="demo-note">13 screenshots from the demo version with sample data.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><h2 class="big">Skills</h2></div>
+    <div class="skills"><div class="skill-card"><h3>Underwriting &amp; Credit</h3><ul><li>LIHTC underwriting</li><li>Credit &amp; risk assessment</li><li>Project feasibility</li><li>Investment memos</li><li>Investment Committee presentations</li></ul></div><div class="skill-card"><h3>Financial Modeling &amp; Analysis</h3><ul><li>Financial modeling</li><li>Cash flow modeling</li><li>Capital structuring</li><li>Debt analysis</li><li>Sources &amp; uses</li><li>Operating budgets</li><li>Scenario &amp; sensitivity testing</li><li>Portfolio analysis</li></ul></div><div class="skill-card"><h3>Transactions &amp; Due Diligence</h3><ul><li>Transaction management</li><li>Due diligence</li><li>Construction review</li><li>Site visits</li><li>Lease negotiation</li><li>Closing documents</li></ul></div><div class="skill-card"><h3>Technical Tools</h3><ul><li>Advanced Excel</li><li>Python</li><li>SQL</li><li>JavaScript</li><li>DealPath</li><li>Salesforce</li><li>IBM SPSS</li><li>Data visualization</li></ul></div></div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><h2 class="big">Education</h2></div>
+    <div class="edu">
+      <div class="edu-row"><div><strong>M.S. Financial Analytics</strong><span class="badge">In progress</span><span class="where">Cal Poly Pomona</span></div><span class="when">2025 – Aug 2027</span></div>
+      <div class="edu-row"><div><strong>B.A. Psychology</strong><span class="where">Cal State Fullerton</span></div><span class="when">2018 – 2021</span></div>
+    </div>
+    <h3 class="sub">Certificates</h3>
+    <div class="edu">
+      <div class="edu-row"><div><strong>Software Engineering Immersive</strong><span class="where">General Assembly</span></div><span class="when">2023</span></div>
+      <div class="edu-row"><div><strong>Construction Management Foundations</strong><span class="where">LinkedIn Learning</span></div></div>
+      <div class="edu-row"><div><strong>Python Data Structures and Algorithms</strong><span class="where">LinkedIn Learning</span></div></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <span class="eyebrow">Contact</span>
+    <h2>Let's talk</h2>
+    <p>Open to conversations about finance, underwriting, credit officer, acquisitions and real estate investment roles.</p>
+    <span class="email" id="em">kacyphann@gmail.com</span>
+    <div class="cta">
+      <button class="btn primary" id="copy-email-2" type="button">Copy email</button>
+      <a class="btn ghost" href="https://www.linkedin.com/in/kacyphan/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>Kacy Phan · Real Estate Finance</footer>
+</div>
+
+<script>
+['copy-email', 'copy-email-2'].forEach(function (id) {
+  var b = document.getElementById(id);
+  var label = b.textContent;
+  b.addEventListener('click', function () {
+    var text = 'kacyphann@gmail.com';
+    var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = label; }, 1500); };
+    var fallback = function () {
+      var el = document.getElementById('em');
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      el.scrollIntoView({ block: 'center' });
+    };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+});
+</script>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Tracker screenshots">
+  <div class="lb-top"><div><span class="lb-cap" id="lb-cap"></span><span class="lb-count" id="lb-count"></span></div><button type="button" id="lb-close">Close</button></div>
+  <div class="lb-stage" id="lb-stage"><img id="lb-img" alt=""></div>
+  <div class="lb-nav"><button type="button" id="lb-prev">← Previous</button><button type="button" id="lb-next">Next →</button></div>
+</div>
+
+<script>
+(function () {
+  var caps = ["Home dashboard: deadlines, fund totals and project map", "Pipeline view of every active deal", "One-page investment summary", "To-do list tied to each project", "Construction schedule and progress", "Sources & uses imported from the Excel model", "Capital contribution schedule", "Construction and permanent financing", "Tax credit flow by year", "Cash developer fee schedule", "Current yield and IRR sensitivity", "Operating income and expenses vs. comps", "Tax credit calculation"];
+  var lb = document.getElementById('lb'), img = document.getElementById('lb-img'), cur = 0, last = null;
+  function show(i) {
+    cur = (i + caps.length) % caps.length;
+    img.src = 'shots/s' + String(cur + 1).padStart(2, '0') + '.jpg';
+    img.alt = caps[cur];
+    document.getElementById('lb-cap').textContent = caps[cur];
+    document.getElementById('lb-count').textContent = (cur + 1) + ' / ' + caps.length;
+    document.getElementById('lb-stage').scrollTop = 0;
+  }
+  function open(i) { last = document.activeElement; show(i); lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lb-close').focus(); }
+  function close() { lb.hidden = true; document.body.style.overflow = ''; if (last) last.focus(); }
+  document.querySelectorAll('[data-i]').forEach(function (el) { el.addEventListener('click', function () { open(+el.dataset.i); }); });
+  document.getElementById('open-gallery').addEventListener('click', function () { open(0); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.id === 'lb-stage') close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(cur + 1);
+    if (e.key === 'ArrowLeft') show(cur - 1);
+  });
+})();
+</script>
+</body>
+</html>
